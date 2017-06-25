@@ -9,7 +9,8 @@
   "private": true,
   "main": "lib/index.js",
   "scripts": {
-    "test": "xo && ava"
+    "test": "xo && ava",
+    "precommit": "lint-staged"
   },
   "engines": {
     "node": "6.x.x"
@@ -17,6 +18,8 @@
   "dependencies": {},
   "devDependencies": {
     "ava": "^0.19.1",
+    "husky": "^0.14.1",
+    "lint-staged": "^4.0.0",
     "xo": "^0.18.2"
   },
   "files": [
@@ -26,5 +29,8 @@
     "esnext": true,
     "space": true,
     "semicolon": false
+  },
+  "lint-staged": {
+    "*.js": ["xo --fix", "git add"]
   }
 }
