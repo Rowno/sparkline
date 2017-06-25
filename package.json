@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "Lightweight React sparkline ✨ 📈",
   "author": "Roland Warmerdam (https://roland.codes)",
-  "keywords": ["react", "sparkline"],
+  "keywords": [
+    "react",
+    "sparkline"
+  ],
   "repository": "Rowno/sparkline",
   "license": "ISC",
   "private": true,
@@ -13,7 +16,7 @@
     "precommit": "lint-staged"
   },
   "engines": {
-    "node": "6.x.x"
+    "node": ">=6"
   },
   "dependencies": {},
   "devDependencies": {
