@@ -1,0 +1,30 @@
+{
+  "name": "@rowno/sparkline",
+  "version": "1.0.0",
+  "description": "Lightweight React sparkline 📈",
+  "author": "Roland Warmerdam (https://roland.codes)",
+  "keywords": ["react", "sparkline"],
+  "repository": "Rowno/sparkline",
+  "license": "ISC",
+  "private": true,
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "engines": {
+    "node": "6.x.x"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "ava": "^0.19.1",
+    "xo": "^0.18.2"
+  },
+  "files": [
+    "lib"
+  ],
+  "xo": {
+    "esnext": true,
+    "space": true,
+    "semicolon": false
+  }
+}
