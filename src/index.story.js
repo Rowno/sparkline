@@ -62,11 +62,11 @@ storiesOf('Sparkline', module)
         />
     )
   })
-  .add('large', () => {
+  .add('square', () => {
     return (
       <Sparkline
-        width={width * 2}
-        height={height * 2}
+        width={width}
+        height={width}
         sparks={[{values: values1}]}
         />
     )
