@@ -33,7 +33,7 @@ export default class SparklineD3 extends PureComponent {
     const maxX = max(sparks, s => s.values.length - 1)
     const maxY = max(sparks, s => max(s.values))
     const x = scaleLinear().domain([0, maxX]).range([0, width])
-    // Set range 1 to make room for the line stroke
+    // Set range to 1 to make room for the line stroke
     const y = scaleLinear().domain([0, maxY]).range([height, 1])
 
     const areaFunction =
