@@ -9,7 +9,6 @@
   ],
   "repository": "Rowno/sparkline",
   "license": "ISC",
-  "private": true,
   "main": "commonjs/index.js",
   "module": "es6/index.js",
   "files": [
