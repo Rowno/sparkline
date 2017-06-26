@@ -16,11 +16,12 @@ yarn add @rowno/sparkline
 npm install --save @rowno/sparkline
 ```
 
+
 ## Example
 
 ```js
 function Spark() {
-  const sparks = [
+  const lines = [
     {
       values: [789, 880, 676, 200, 890, 677, 900],
       colors: {
@@ -40,7 +41,7 @@ function Spark() {
     <Sparkline
       width={56}
       height={12}
-      sparks={sparks}
+      lines={lines}
       />
   )
 }

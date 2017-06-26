@@ -25,7 +25,7 @@ const values2 = [
 
 storiesOf('Sparkline', module)
   .add('basic', () => {
-    const sparks = [{
+    const lines = [{
       values: values1,
       title: 'Allowed events'
     }]
@@ -33,24 +33,24 @@ storiesOf('Sparkline', module)
       <Sparkline
         width={width}
         height={height}
-        sparks={sparks}
+        lines={lines}
         />
     )
   })
   .add('lots of data', () => {
-    const sparks = [{
+    const lines = [{
       values: values1.concat(values1).concat(values1).concat(values1)
     }]
     return (
       <Sparkline
         width={width}
         height={height}
-        sparks={sparks}
+        lines={lines}
         />
     )
   })
   .add('custom colors', () => {
-    const sparks = [{
+    const lines = [{
       values: values1,
       colors: {area: '#e4f7ed', line: '#2B6B4C'}
     }]
@@ -58,7 +58,7 @@ storiesOf('Sparkline', module)
       <Sparkline
         width={width}
         height={height}
-        sparks={sparks}
+        lines={lines}
         />
     )
   })
@@ -67,12 +67,12 @@ storiesOf('Sparkline', module)
       <Sparkline
         width={width}
         height={width}
-        sparks={[{values: values1}]}
+        lines={[{values: values1}]}
         />
     )
   })
   .add('multiple sparklines', () => {
-    const sparks = [
+    const lines = [
       {
         values: values2,
         colors: {
@@ -93,7 +93,7 @@ storiesOf('Sparkline', module)
       <Sparkline
         width={width}
         height={height}
-        sparks={sparks}
+        lines={lines}
         />
     )
   })
