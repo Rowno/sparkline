@@ -16,7 +16,8 @@
     "es6"
   ],
   "scripts": {
-    "test": "xo && ava",
+    "test": "make test",
+    "prepublishOnly": "make clean build",
     "precommit": "lint-staged"
   },
   "engines": {

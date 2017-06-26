@@ -6,7 +6,8 @@ node_modules: package.json yarn.lock
 	touch $@
 
 test: node_modules
-	npm test
+	$(BIN)/xo
+	$(BIN)/ava
 .PHONY: test
 
 commonjs: node_modules .babelrc
