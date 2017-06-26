@@ -97,3 +97,21 @@ storiesOf('Sparkline', module)
         />
     )
   })
+  .add('many sparks, so fast', () => {
+    const sparklines = []
+    for (let i = 0; i < 200; i++) {
+      sparklines.push(
+        <Sparkline
+          key={i} // eslint-disable-line react/no-array-index-key
+          width={width}
+          height={height}
+          lines={[{values: values1}]}
+          />
+      )
+    }
+    return (
+      <div>
+        {sparklines}
+      </div>
+    )
+  })
