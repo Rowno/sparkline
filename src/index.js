@@ -10,8 +10,8 @@ const defaultColors = {
   line: '#004585'
 }
 
-export default class SparklineD3 extends PureComponent {
-  static displayName = 'SparklineD3'
+export default class Sparkline extends PureComponent {
+  static displayName = 'Sparkline'
   static propTypes = {
     lines: PropTypes.arrayOf(
       PropTypes.shape({
