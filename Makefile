@@ -25,5 +25,5 @@ clean:
 .PHONY: clean
 
 server: node_modules
-	$(BIN)/start-storybook -p 9001 -c storybook
+	BABEL_ENV=commonjs $(BIN)/start-storybook -p 9001 -c storybook
 .PHONY: server
