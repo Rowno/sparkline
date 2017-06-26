@@ -10,11 +10,11 @@ test: node_modules
 	$(BIN)/ava
 .PHONY: test
 
-commonjs: node_modules .babelrc
+commonjs: node_modules .babelrc src/**/*.js src/*.js
 	BABEL_ENV=commonjs $(BIN)/babel src --out-dir commonjs --ignore $(BUILD_IGNORE)
 	touch $@
 
-es6: node_modules .babelrc
+es6: node_modules .babelrc src/**/*.js src/*.js
 	BABEL_ENV=es6 $(BIN)/babel src --out-dir es6 --ignore $(BUILD_IGNORE)
 	touch $@
 
