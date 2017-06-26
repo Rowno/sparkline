@@ -12,9 +12,7 @@ Lightweight React sparklines ✨ 📈
 
 ```sh
 yarn add @rowno/sparkline
-```
-or
-```sh
+# or
 npm install --save @rowno/sparkline
 ```
 
