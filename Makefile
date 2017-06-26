@@ -7,7 +7,7 @@ node_modules: package.json yarn.lock
 
 test: node_modules
 	$(BIN)/xo
-	$(BIN)/ava
+	# $(BIN)/ava
 .PHONY: test
 
 commonjs: node_modules .babelrc src/**/*.js src/*.js
