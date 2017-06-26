@@ -1,0 +1,20 @@
+{
+  "sourceMaps": "inline",
+  "env": {
+    "commonjs": {
+      "presets": [
+        "env",
+        "stage-0",
+        "react"
+      ]
+    },
+    "es6": {
+      "presets": [
+        ["env", {"modules": false}],
+        "stage-0",
+        "react"
+      ],
+      "plugins": ["transform-runtime"]
+    }
+  }
+}

@@ -10,7 +10,12 @@
   "repository": "Rowno/sparkline",
   "license": "ISC",
   "private": true,
-  "main": "lib/index.js",
+  "main": "commonjs/index.js",
+  "module": "es6/index.js",
+  "files": [
+    "commonjs",
+    "es6"
+  ],
   "scripts": {
     "test": "xo && ava",
     "precommit": "lint-staged"
@@ -26,7 +31,12 @@
   "devDependencies": {
     "@storybook/react": "^3.1.5",
     "ava": "^0.19.1",
+    "babel-cli": "^6.24.1",
     "babel-eslint": "^7.2.3",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "eslint-config-xo-react": "^0.12.0",
     "eslint-plugin-react": "^7.1.0",
     "husky": "^0.14.1",
@@ -41,9 +51,6 @@
     "react": "^15.0.0",
     "react-dom": "^15.0.0"
   },
-  "files": [
-    "lib"
-  ],
   "xo": {
     "parser": "babel-eslint",
     "extends": "xo-react",
