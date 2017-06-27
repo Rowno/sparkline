@@ -16,12 +16,12 @@ const values = [
 const width = 56
 const height = 12
 
-test('basic usage', t => {
+test('snapshot', t => {
   const component = (
     <Sparkline
       width={width}
       height={height}
-      lines={[{values}]}
+      lines={[{values, title: 'Title 1'}, {values, title: 'Title 2'}]}
       />
   )
   t.snapshot(render.create(component).toJSON())
@@ -39,7 +39,6 @@ test('width', t => {
   const wrapper = shallow(component)
   t.is(wrapper.prop('width'), width)
   t.is(wrapper.prop('viewBox'), `0 0 ${width} ${height}`)
-  t.snapshot(render.create(component).toJSON())
 })
 
 test('height', t => {
@@ -54,7 +53,6 @@ test('height', t => {
   const wrapper = shallow(component)
   t.is(wrapper.prop('height'), height)
   t.is(wrapper.prop('viewBox'), `0 0 ${width} ${height}`)
-  t.snapshot(render.create(component).toJSON())
 })
 
 test('colors', t => {
@@ -69,7 +67,6 @@ test('colors', t => {
   const paths = shallow(component).find('path')
   t.is(paths.first().prop('fill'), colors.area)
   t.is(paths.last().prop('stroke'), colors.line)
-  t.snapshot(render.create(component).toJSON())
 })
 
 test('title', t => {
@@ -83,7 +80,6 @@ test('title', t => {
   )
   const wrapper = shallow(component)
   t.is(wrapper.find('path title').text(), title)
-  t.snapshot(render.create(component).toJSON())
 })
 
 test('multiple lines', t => {
@@ -97,5 +93,4 @@ test('multiple lines', t => {
   const wrapper = shallow(component)
   t.is(wrapper.find('g').length, 2)
   t.is(wrapper.find('path').length, 4)
-  t.snapshot(render.create(component).toJSON())
 })
