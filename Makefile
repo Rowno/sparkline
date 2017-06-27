@@ -11,6 +11,14 @@ test: node_modules
 	$(BIN)/ava
 .PHONY: test
 
+test-watch: node_modules
+	$(BIN)/ava --watch
+.PHONY: test-watch
+
+test-update-snapshots: node_modules
+	$(BIN)/ava --update-snapshots
+.PHONY: test-watch
+
 commonjs: node_modules
 	BABEL_ENV=commonjs $(BIN)/babel src --out-dir commonjs --ignore $(BUILD_IGNORE)
 
