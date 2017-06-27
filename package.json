@@ -45,6 +45,7 @@
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-test-renderer": "^15.6.1",
     "xo": "^0.18.2"
   },
   "peerDependencies": {
@@ -63,5 +64,11 @@
       "xo --fix",
       "git add"
     ]
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
   }
 }
