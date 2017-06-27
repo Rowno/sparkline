@@ -1,10 +1,10 @@
 import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
-import {area, line, curveNatural} from 'd3-shape'
+import {area, line, curveMonotoneX} from 'd3-shape'
 import {scaleLinear} from 'd3-scale'
 import {max} from 'd3-array'
 
-const curveFunction = curveNatural
+const curveFunction = curveMonotoneX
 const defaultColors = {
   area: 'rgba(199, 228, 255, 0.5)',
   line: '#004585'
