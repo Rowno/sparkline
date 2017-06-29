@@ -5,7 +5,7 @@
 
 Lightweight React sparklines ✨ 📈
 
-![Example sparkline](example1.svg)
+![Example sparkline](example1.png)
 
 
 ## Install
@@ -47,7 +47,7 @@ function Spark() {
 }
 ```
 
-Outputs: ![Example output](example2.svg)
+Outputs: ![Example output](example2.png)
 
 
 ## License
