@@ -17,7 +17,7 @@ test-watch: node_modules
 
 test-update-snapshots: node_modules
 	$(BIN)/ava --update-snapshots
-.PHONY: test-watch
+.PHONY: test-update-snapshots
 
 commonjs: node_modules
 	BABEL_ENV=commonjs $(BIN)/babel src --out-dir commonjs --ignore $(BUILD_IGNORE)
