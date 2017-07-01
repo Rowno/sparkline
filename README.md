@@ -50,6 +50,63 @@ function Spark() {
 Outputs: ![Example output](example2.png)
 
 
+## Properties
+
+### width
+
+Type: `number` (required)
+
+Width of the sparkline.
+
+### height
+
+Type: `number` (required)
+
+Height of the sparkline.
+
+### lines
+
+Type: `array<object>` (required)
+
+Objects defining the lines to draw.
+
+#### values
+
+Type: `array<number>` (required)
+
+Numbers that make up the data points of the line.
+
+#### colors
+
+Type: `object`
+
+Custom colors for the line.
+
+##### area
+
+Type: `string`
+
+Color of the line's filled in area.
+
+##### line
+
+Type: `string`
+
+Color of the line's stroke.
+
+#### title
+
+Type: `string`
+
+`title` of the line. Shown as a tooltip in the browser.
+
+#### key
+
+Type: `any`
+
+React `key` of the line.
+
+
 ## License
 
 sparkline is released under the ISC license.
