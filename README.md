@@ -52,6 +52,22 @@ Outputs: ![Example output](example2.png)
 
 ## Properties
 
+```js
+{
+  width: 56,
+  height: 12,
+  lines: [{
+    values: [789, 880, 676],
+    colors: {
+      area: 'rgba(217, 227, 237, 0.5)',
+      line: '#193652'
+    },
+    title: 'Allowed events',
+    key: 'allowed'
+  }]
+}
+```
+
 ### width
 
 Type: `number` (required)
@@ -104,7 +120,7 @@ Type: `string`
 
 Type: `any`
 
-React `key` of the line.
+Unique React `key` of the line.
 
 
 ## License
