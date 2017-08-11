@@ -2,7 +2,7 @@ import test from 'ava'
 import React from 'react'
 import render from 'react-test-renderer'
 import {shallow} from 'enzyme'
-import Sparkline from './index'
+import Sparkline from '../index'
 
 const values = [
   354,

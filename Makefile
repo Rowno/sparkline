@@ -1,5 +1,5 @@
 BIN := ./node_modules/.bin
-BUILD_IGNORE = '**/*.story.js,**/*.test.js'
+BUILD_IGNORE = '*.story.js,__tests__'
 export BABEL_ENV = commonjs
 
 node_modules: package.json yarn.lock
