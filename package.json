@@ -48,6 +48,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-test-renderer": "^15.6.1",
+    "size-limit": "^0.8.4",
     "xo": "^0.18.2"
   },
   "peerDependencies": {
@@ -72,5 +73,11 @@
       "babel-register"
     ],
     "babel": "inherit"
-  }
+  },
+  "size-limit": [
+    {
+      "path": ".",
+      "limit": "38 KB"
+    }
+  ]
 }

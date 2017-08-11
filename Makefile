@@ -6,9 +6,10 @@ node_modules: package.json yarn.lock
 	yarn install
 	touch $@
 
-test: node_modules
+test: node_modules build
 	$(BIN)/xo
 	$(BIN)/ava
+	$(BIN)/size-limit
 .PHONY: test
 
 test-watch: node_modules
