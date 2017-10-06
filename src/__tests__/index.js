@@ -1,8 +1,11 @@
 import test from 'ava'
 import React from 'react'
 import render from 'react-test-renderer'
-import {shallow} from 'enzyme'
+import Enzyme, {shallow} from 'enzyme'
+import EnzymeAdapter from 'enzyme-adapter-react-16'
 import Sparkline from '../index'
+
+Enzyme.configure({adapter: new EnzymeAdapter()})
 
 const values = [
   354,
