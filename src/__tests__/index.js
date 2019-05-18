@@ -3,7 +3,7 @@ import React from 'react'
 import render from 'react-test-renderer'
 import Enzyme, {shallow} from 'enzyme'
 import EnzymeAdapter from 'enzyme-adapter-react-16'
-import Sparkline from '../index'
+import Sparkline from '..'
 
 Enzyme.configure({adapter: new EnzymeAdapter()})
 
@@ -25,7 +25,7 @@ test('snapshot', t => {
       width={width}
       height={height}
       lines={[{values, title: 'Title 1'}, {values, title: 'Title 2'}]}
-      />
+    />
   )
   t.snapshot(render.create(component).toJSON())
 })
@@ -37,7 +37,7 @@ test('width', t => {
       width={width}
       height={height}
       lines={[{values}]}
-      />
+    />
   )
   const wrapper = shallow(component)
   t.is(wrapper.prop('width'), width)
@@ -51,7 +51,7 @@ test('height', t => {
       width={width}
       height={height}
       lines={[{values}]}
-      />
+    />
   )
   const wrapper = shallow(component)
   t.is(wrapper.prop('height'), height)
@@ -65,7 +65,7 @@ test('colors', t => {
       width={width}
       height={height}
       lines={[{values, colors}]}
-      />
+    />
   )
   const paths = shallow(component).find('path')
   t.is(paths.first().prop('fill'), colors.area)
@@ -79,7 +79,7 @@ test('title', t => {
       width={width}
       height={height}
       lines={[{values, title}]}
-      />
+    />
   )
   const wrapper = shallow(component)
   t.is(wrapper.find('path title').text(), title)
@@ -91,7 +91,7 @@ test('multiple lines', t => {
       width={width}
       height={height}
       lines={[{values}, {values}]}
-      />
+    />
   )
   const wrapper = shallow(component)
   t.is(wrapper.find('g').length, 2)

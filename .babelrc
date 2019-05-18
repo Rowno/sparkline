@@ -1,20 +1,13 @@
 {
-  "plugins": ["transform-runtime"],
+  "plugins": [
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-proposal-class-properties"
+  ],
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
   "sourceMaps": "inline",
   "env": {
-    "commonjs": {
-      "presets": [
-        "env",
-        "stage-0",
-        "react"
-      ]
-    },
     "es6": {
-      "presets": [
-        ["env", {"modules": false}],
-        "stage-0",
-        "react"
-      ]
+      "presets": [["@babel/preset-env", { "modules": false }]]
     }
   }
 }

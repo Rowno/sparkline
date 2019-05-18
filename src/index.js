@@ -12,6 +12,7 @@ const defaultColors = {
 
 export default class Sparkline extends PureComponent {
   static displayName = 'Sparkline'
+
   static propTypes = {
     lines: PropTypes.arrayOf(
       PropTypes.shape({
@@ -38,16 +39,16 @@ export default class Sparkline extends PureComponent {
 
     const areaFunction =
       area()
-      .x((d, i) => x(i))
-      .y0(height)
-      .y1(d => y(d))
-      .curve(curveFunction)
+        .x((d, i) => x(i))
+        .y0(height)
+        .y1(d => y(d))
+        .curve(curveFunction)
 
     const lineFunction =
       line()
-      .x((d, i) => x(i))
-      .y(d => y(d))
-      .curve(curveFunction)
+        .x((d, i) => x(i))
+        .y(d => y(d))
+        .curve(curveFunction)
 
     return (
       <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
