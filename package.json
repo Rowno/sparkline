@@ -11,6 +11,7 @@
   "license": "ISC",
   "main": "commonjs/index.js",
   "module": "es6/index.js",
+  "sideEffects": false,
   "files": [
     "commonjs",
     "es6"
