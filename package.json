@@ -17,8 +17,13 @@
     "es6"
   ],
   "scripts": {
-    "test": "make test",
-    "prepublishOnly": "make clean build"
+    "test": "xo && ava && size-limit",
+    "dev": "start-storybook -p 9001 -c storybook",
+    "clean": "rm -rf commonjs es6",
+    "build-commonjs": "BABEL_ENV=commonjs babel src --out-dir commonjs --ignore './**/*.story.js,./**/*.test.js'",
+    "build-es6": "BABEL_ENV=es6 babel src --out-dir es6 --ignore './**/*.story.js,./**/*.test.js'",
+    "build": "yarn clean && yarn build-commonjs && yarn build-es6",
+    "prepublishOnly": "yarn build"
   },
   "engines": {
     "node": ">=8"
