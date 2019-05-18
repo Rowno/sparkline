@@ -20,7 +20,7 @@
     "prepublishOnly": "make clean build"
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=8"
   },
   "dependencies": {
     "@babel/runtime": "^7.4.4",
