@@ -17,7 +17,7 @@
     "es6"
   ],
   "scripts": {
-    "test": "xo && ava && size-limit",
+    "test": "yarn build && xo && ava && size-limit",
     "dev": "start-storybook -p 9001 -c storybook",
     "clean": "rm -rf commonjs es6",
     "build-commonjs": "BABEL_ENV=commonjs babel src --out-dir commonjs --ignore './**/*.story.js,./**/*.test.js'",
