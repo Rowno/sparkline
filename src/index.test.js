@@ -3,7 +3,7 @@ import React from 'react'
 import render from 'react-test-renderer'
 import Enzyme, {shallow} from 'enzyme'
 import EnzymeAdapter from 'enzyme-adapter-react-16'
-import Sparkline from '.'
+import Sparkline, {defaultColors} from '.'
 
 Enzyme.configure({adapter: new EnzymeAdapter()})
 
@@ -42,20 +42,73 @@ test('height', t => {
   t.is(wrapper.prop('viewBox'), `0 0 ${width} ${height}`)
 })
 
-test('colors', t => {
-  const colors = {area: '#e4f7ed', line: '#2B6B4C'}
+test('showLine', t => {
   const component = (
-    <Sparkline width={width} height={height} lines={[{values, colors}]}/>
+    <Sparkline width={width} height={height} lines={[{values, showLine: true}]}/>
   )
   const paths = shallow(component).find('path')
-  t.is(paths.first().prop('fill'), colors.area)
-  t.is(paths.last().prop('stroke'), colors.line)
+  t.is(paths.length, 1)
+  t.is(paths.first().prop('stroke'), defaultColors.line)
+  t.is(paths.first().prop('strokeWidth'), 1)
+  t.is(paths.first().prop('fill'), 'none')
+})
+
+test('stroke', t => {
+  const component = (
+    <Sparkline width={width} height={height} lines={[{values, showLine: true, stroke: '#ee1d4d'}]}/>
+  )
+  const paths = shallow(component).find('path')
+  t.is(paths.length, 1)
+  t.is(paths.first().prop('stroke'), '#ee1d4d')
+  t.is(paths.first().prop('strokeWidth'), 1)
+  t.is(paths.first().prop('fill'), 'none')
+})
+
+test('strokeWidth', t => {
+  const component = (
+    <Sparkline width={width} height={height} lines={[{values, showLine: true, strokeWidth: 1.5}]}/>
+  )
+  const paths = shallow(component).find('path')
+  t.is(paths.length, 1)
+  t.is(paths.first().prop('stroke'), defaultColors.line)
+  t.is(paths.first().prop('strokeWidth'), 1.5)
+  t.is(paths.first().prop('fill'), 'none')
+})
+
+test('showArea', t => {
+  const component = (
+    <Sparkline width={width} height={height} lines={[{values, showArea: true}]}/>
+  )
+  const paths = shallow(component).find('path')
+  t.is(paths.length, 1)
+  t.is(paths.first().prop('fill'), defaultColors.area)
+})
+
+test('fill', t => {
+  const component = (
+    <Sparkline width={width} height={height} lines={[{values, showArea: true, fill: '#fff'}]}/>
+  )
+  const paths = shallow(component).find('path')
+  t.is(paths.length, 1)
+  t.is(paths.first().prop('fill'), '#fff')
+})
+
+test('showLine & showArea', t => {
+  const component = (
+    <Sparkline width={width} height={height} lines={[{values, showLine: true, showArea: true}]}/>
+  )
+  const paths = shallow(component).find('path')
+  t.is(paths.length, 2)
+  t.is(paths.first().prop('fill'), defaultColors.area)
+  t.is(paths.last().prop('stroke'), defaultColors.line)
+  t.is(paths.last().prop('strokeWidth'), 1)
+  t.is(paths.last().prop('fill'), 'none')
 })
 
 test('title', t => {
   const title = 'Line title'
   const component = (
-    <Sparkline width={width} height={height} lines={[{values, title}]}/>
+    <Sparkline width={width} height={height} lines={[{values, showArea: true, title}]}/>
   )
   const wrapper = shallow(component)
   t.is(wrapper.find('path title').text(), title)
@@ -63,7 +116,10 @@ test('title', t => {
 
 test('multiple lines', t => {
   const component = (
-    <Sparkline width={width} height={height} lines={[{values}, {values}]}/>
+    <Sparkline
+      width={width}
+      height={height}
+      lines={[{values, showLine: true, showArea: true}, {values, showLine: true, showArea: true}]}/>
   )
   const wrapper = shallow(component)
   t.is(wrapper.find('g').length, 2)

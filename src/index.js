@@ -5,10 +5,11 @@ import {scaleLinear} from 'd3-scale'
 import {max} from 'd3-array'
 
 const curveFunction = curveMonotoneX
-const defaultColors = {
+export const defaultColors = {
   area: 'rgba(199, 228, 255, 0.5)',
   line: '#004585'
 }
+export const defaultStrokeWidth = 1
 
 export default class Sparkline extends PureComponent {
   static displayName = 'Sparkline'
@@ -17,10 +18,11 @@ export default class Sparkline extends PureComponent {
     lines: PropTypes.arrayOf(
       PropTypes.shape({
         values: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-        colors: PropTypes.shape({
-          area: PropTypes.string.isRequired,
-          line: PropTypes.string.isRequired
-        }),
+        showLine: PropTypes.boolean,
+        stroke: PropTypes.string,
+        strokeWidth: PropTypes.number,
+        showArea: PropTypes.boolean,
+        fill: PropTypes.string,
         title: PropTypes.string,
         key: PropTypes.any
       })
@@ -52,20 +54,22 @@ export default class Sparkline extends PureComponent {
 
     return (
       <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
-        {lines.map((line, index) => {
-          const colors = {
-            ...defaultColors,
-            ...line.colors
-          }
-          return (
-            <g key={line.key || index}>
-              <path d={areaFunction(line.values)} fill={colors.area}>
+        {lines.map((line, index) => (
+          <g key={line.key || index}>
+            {line.showArea && (
+              <path d={areaFunction(line.values)} fill={line.fill || defaultColors.area}>
                 {line.title && <title>{line.title}</title>}
               </path>
-              <path d={lineFunction(line.values)} stroke={colors.line} fill="none"/>
-            </g>
-          )
-        })}
+            )}
+            {line.showLine && (
+              <path
+                d={lineFunction(line.values)}
+                stroke={line.stroke || defaultColors.line}
+                strokeWidth={line.strokeWidth || defaultStrokeWidth}
+                fill="none"/>
+            )}
+          </g>
+        ))}
       </svg>
     )
   }
